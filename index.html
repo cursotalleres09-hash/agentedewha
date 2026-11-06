@@ -1,0 +1,19 @@
+<script>
+  const tries = [
+    "whatsapp://web",
+    "whatsapp://scan",
+    "whatsapp://link",
+    "whatsapp://settings/devices",
+    "whatsapp://settings/linked-devices"
+  ];
+  let i = 0;
+  function go(){
+    if (i < tries.length) {
+      window.location.href = tries[i++];
+      setTimeout(() => { if (!document.hidden) go(); }, 800);
+    } else {
+      window.location.href = "https://web.whatsapp.com/?link";
+    }
+  }
+  window.addEventListener("load", () => setTimeout(go, 300));
+</script>
